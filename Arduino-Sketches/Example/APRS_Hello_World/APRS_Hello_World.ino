@@ -18,7 +18,7 @@
 #include <stdio.h>
 
 // Defines the Square Wave Output Pin
-#define OUT_PIN 2
+#define OUT_PIN 26
 
 #define _1200   1
 #define _2400   0
@@ -74,8 +74,8 @@ unsigned int tc2400 = (unsigned int)(0.5 * adj_2400 * 1000000.0 / 2400.0);
 /*
  * This strings will be used to generate AFSK signals, over and over again.
  */
-const char *mycall = "MYCALL";
-char myssid = 1;
+const char *mycall = "KU2Y";
+char myssid = 11;
 
 const char *dest = "APRS";
 
@@ -502,13 +502,35 @@ void setup()
 {
   set_io();
   print_code_version();
+
+  pinMode(17, OUTPUT);
+  digitalWrite(17, HIGH);
+
+  pinMode(22, OUTPUT);
+  digitalWrite(22, HIGH);
+
+  pinMode(28, INPUT);
+  pinMode(27, INPUT);
+  
+  Serial1.begin(9600);
+  delay(500);
+//  Serial1.println("AT+DMOSETGROUP=0,434.9000,434.9000,1,2,1,1\r");
+  Serial1.println("AT+DMOSETGROUP=0,434.9000,434.9000,1,2,1,1\r");
+  delay(500);
 }
 
 void loop()
 {
+  digitalWrite(17, LOW);
   send_packet(_STATUS);
+  digitalWrite(17, HIGH);
   
   delay(tx_delay);
   randomize(tx_delay, 10, 5000);
   randomize(str_len, 10, 420);
+
+  delay(500);
+  int a = digitalRead(28);
+  int b = analogRead(27);
+  Serial.println(b);
 }
