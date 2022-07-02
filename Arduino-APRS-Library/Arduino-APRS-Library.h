@@ -1,10 +1,7 @@
-#ifndef ARDUINO_APRS_H
-#define ARDUINO_APRS_H
+#ifndef ARDUINO_APRS_Library_H
+#define ARDUINO_APRS_LibraryH
 
 #include <Arduino.h>
-
-
-
 
 #include <math.h>
 #include <stdio.h>
