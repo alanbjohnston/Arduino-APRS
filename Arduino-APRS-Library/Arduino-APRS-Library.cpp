@@ -97,22 +97,22 @@ unsigned short crc=0xffff;
  */
 void set_nada_1200(void)
 {
-  digitalWrite(pin, HIGH);
+  digitalWrite(output_pin, HIGH);
   delayMicroseconds(tc1200);
-  digitalWrite(pin, LOW);
+  digitalWrite(output_pin, LOW);
   delayMicroseconds(tc1200);
 }
 
 void set_nada_2400(void)
 {
-  digitalWrite(out_pin, HIGH);
+  digitalWrite(output_pin, HIGH);
   delayMicroseconds(tc2400);
-  digitalWrite(out_pin, LOW);
+  digitalWrite(output_pin, LOW);
   delayMicroseconds(tc2400);
   
-  digitalWrite(out_pin, HIGH);
+  digitalWrite(output_pin, HIGH);
   delayMicroseconds(tc2400);
-  digitalWrite(out_pin, LOW);
+  digitalWrite(output_pin, LOW);
   delayMicroseconds(tc2400);
 }
 
