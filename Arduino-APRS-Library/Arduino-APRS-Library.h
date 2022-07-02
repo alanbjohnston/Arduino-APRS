@@ -28,6 +28,7 @@ byte output_pin;
 /*
  * 
  */
+void set_pin(byte pin);
 void set_nada_1200(void);
 void set_nada_2400(void);
 void set_nada(bool nada);
