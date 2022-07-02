@@ -1,5 +1,5 @@
-#ifndef ARDUINO-APRS_H
-#define ARDUINO-APRS_H
+#ifndef ARDUINO_APRS_H
+#define ARDUINO_APRS_H
 
 #include <Arduino.h>
 
