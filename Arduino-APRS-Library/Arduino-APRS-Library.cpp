@@ -23,13 +23,13 @@
 #include <Arduino.h>
 
 bool nada = _2400;
-
+/*
 Aprs::Aprs(char *mycall) {
   strcpy(this->mycall, mycall);
 //  this->mycall = mcall;
 //  init();
 }
-/*
+*
 void aprs::init() {
   pinMode(pin, OUTPUT);
   off();
