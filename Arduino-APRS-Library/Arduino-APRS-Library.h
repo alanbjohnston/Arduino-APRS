@@ -28,6 +28,7 @@
  * 
  */
 void set_pin(byte pin);
+void set_callsign(char *call);
 void set_nada_1200(void);
 void set_nada_2400(void);
 void set_nada(bool nada);
