@@ -92,7 +92,7 @@ unsigned short crc=0xffff;
 /*
  * 
  */
-void Aprs::set_nada_1200(void)
+void set_nada_1200(void)
 {
   digitalWrite(output_pin, HIGH);
   delayMicroseconds(tc1200);
@@ -100,7 +100,7 @@ void Aprs::set_nada_1200(void)
   delayMicroseconds(tc1200);
 }
 
-void Aprs::set_nada_2400(void)
+void set_nada_2400(void)
 {
   digitalWrite(output_pin, HIGH);
   delayMicroseconds(tc2400);
@@ -116,9 +116,9 @@ void Aprs::set_nada_2400(void)
 void set_nada(bool nada)
 {
   if(nada)
-    Aprs::set_nada_1200();
+    set_nada_1200();
   else
-    Aprs::set_nada_2400();
+    set_nada_2400();
 }
 
 /*
