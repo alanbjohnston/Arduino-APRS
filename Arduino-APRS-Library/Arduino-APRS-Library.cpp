@@ -64,7 +64,7 @@ unsigned int tc2400 = (unsigned int)(0.5 * adj_2400 * 1000000.0 / 2400.0);
  */
 //const char *mycall = "KU2Y";
 
-char *mycall;
+char mycall[7];
 char myssid = 11;
 
 const char *dest = "APRS";
