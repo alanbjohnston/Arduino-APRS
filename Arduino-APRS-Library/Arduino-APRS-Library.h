@@ -34,7 +34,12 @@ class Aprs {
     Aprs(byte output_pin);
     // Setup the output pin as OUTPUT
     void init();
-   
+  
+  private:   
+  
+    void set_nada_1200(void);
+    void set_nada_2400(void);
+  
 };
 
 /*
