@@ -94,7 +94,7 @@ void set_pin( byte pin) {
 }
 
 void set_callsign(char *call) {
-  strcpy(my_call, call);
+  strcpy(mycall, call);
 }
 
 /*
