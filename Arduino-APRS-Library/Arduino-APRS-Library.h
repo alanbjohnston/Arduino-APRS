@@ -23,7 +23,6 @@
 #define _STATUS         2
 #define _FIXPOS_STATUS  3
 
-byte output_pin;
     
 /*
  * 
