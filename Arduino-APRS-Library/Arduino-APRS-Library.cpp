@@ -23,6 +23,7 @@
 //#include <Arduino.h>
 
 bool nada = _2400;
+byte output_pin;
 
 void set_pin( byte pin) {
   output_pin = pin;
