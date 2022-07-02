@@ -24,6 +24,19 @@
 #define _FIXPOS_STATUS  3
 
 
+class Aprs {
+  
+  private:
+    byte output_pin;
+    
+  public:
+    // Setup output pin  and call init()
+    Aprs(byte output_pin);
+    // Setup the output pin as OUTPUT
+    void init();
+   
+};
+
 /*
  * 
  */
