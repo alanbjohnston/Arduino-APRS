@@ -24,11 +24,8 @@
 
 bool nada = _2400;
 
-Aprs::Aprs(byte output_pin) {
-  this->output_pin = output_pin;
-  init();
-}
-void Aprs::init() {
+void setpin( byte pin) {
+  output_pin = pin;
   pinMode(output_pin, OUTPUT);
 }
 
