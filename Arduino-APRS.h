@@ -1,3 +1,11 @@
+#ifndef ARDUINO-APRS_H
+#define ARDUINO-APRS_H
+
+#include <Arduino.h>
+
+
+
+
 #include <math.h>
 #include <stdio.h>
 
@@ -100,3 +108,5 @@ void send_payload(char type);
 void set_io(void);
 void print_code_version(void);
 void print_debug(char type);
+
+#endif
