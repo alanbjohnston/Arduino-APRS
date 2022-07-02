@@ -19,7 +19,7 @@
 //
 // To use, Sketch/Include Library/Add .ZIP Library then select this file
 
-#include "Arduino-APRS.h"
+#include "Arduino-APRS-Library.h"
 #include <Arduino.h>
 
 bool nada = _2400;
