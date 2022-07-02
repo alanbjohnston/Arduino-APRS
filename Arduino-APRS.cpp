@@ -19,7 +19,7 @@
 //
 // To use, Sketch/Include Library/Add .ZIP Library then select this file
 
-#include "Arduino-APRS.cpp"
+#include "Arduino-APRS.h"
 #include <Arduino.h>
 
 
