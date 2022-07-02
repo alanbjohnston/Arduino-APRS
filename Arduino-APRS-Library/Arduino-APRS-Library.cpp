@@ -24,7 +24,7 @@
 
 bool nada = _2400;
 
-void setpin( byte pin) {
+void set_pin( byte pin) {
   output_pin = pin;
   pinMode(output_pin, OUTPUT);
 }
