@@ -23,18 +23,14 @@
 //#include <Arduino.h>
 
 bool nada = _2400;
-/*
-Aprs::Aprs(char *mycall) {
-  strcpy(this->mycall, mycall);
-//  this->mycall = mcall;
-//  init();
+
+Aprs::Aprs(byte output_pin) {
+  this->output_pin = output_pin;
+  init();
 }
-*
-void aprs::init() {
-  pinMode(pin, OUTPUT);
-  off();
+void Aprs::init() {
+  pinMode(output_pin, OUTPUT);
 }
-*/
 
 /*
  * SQUARE WAVE SIGNAL GENERATION
@@ -101,22 +97,22 @@ unsigned short crc=0xffff;
  */
 void set_nada_1200(void)
 {
-  digitalWrite(OUT_PIN, HIGH);
+  digitalWrite(pin, HIGH);
   delayMicroseconds(tc1200);
-  digitalWrite(OUT_PIN, LOW);
+  digitalWrite(pin, LOW);
   delayMicroseconds(tc1200);
 }
 
 void set_nada_2400(void)
 {
-  digitalWrite(OUT_PIN, HIGH);
+  digitalWrite(out_pin, HIGH);
   delayMicroseconds(tc2400);
-  digitalWrite(OUT_PIN, LOW);
+  digitalWrite(out_pin, LOW);
   delayMicroseconds(tc2400);
   
-  digitalWrite(OUT_PIN, HIGH);
+  digitalWrite(out_pin, HIGH);
   delayMicroseconds(tc2400);
-  digitalWrite(OUT_PIN, LOW);
+  digitalWrite(out_pin, LOW);
   delayMicroseconds(tc2400);
 }
 
@@ -395,7 +391,7 @@ void randomize(unsigned int &var, unsigned int low, unsigned int high)
 void set_io(void)
 {
   pinMode(LED_BUILTIN, OUTPUT);
-  pinMode(OUT_PIN, OUTPUT);
+//  pinMode(OUT_PIN, OUTPUT);
 
   Serial.begin(115200);
 }
