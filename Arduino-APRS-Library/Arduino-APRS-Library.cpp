@@ -119,9 +119,9 @@ void Aprs::set_nada_2400(void)
 void set_nada(bool nada)
 {
   if(nada)
-    set_nada_1200();
+    Aprs::set_nada_1200();
   else
-    set_nada_2400();
+    Aprs::set_nada_2400();
 }
 
 /*
