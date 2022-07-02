@@ -22,13 +22,7 @@
 #include "Arduino-APRS-Library.h"
 //#include <Arduino.h>
 
-bool nada = _2400;
-byte output_pin;
 
-void set_pin( byte pin) {
-  output_pin = pin;
-  pinMode(output_pin, OUTPUT);
-}
 
 /*
  * SQUARE WAVE SIGNAL GENERATION
@@ -68,7 +62,9 @@ unsigned int tc2400 = (unsigned int)(0.5 * adj_2400 * 1000000.0 / 2400.0);
 /*
  * This strings will be used to generate AFSK signals, over and over again.
  */
-const char *mycall = "KU2Y";
+//const char *mycall = "KU2Y";
+
+char *mycall;
 char myssid = 11;
 
 const char *dest = "APRS";
@@ -89,6 +85,17 @@ unsigned int str_len = 400;
 char bit_stuff = 0;
 unsigned short crc=0xffff;
 
+bool nada = _2400;
+byte output_pin;
+
+void set_pin( byte pin) {
+  output_pin = pin;
+  pinMode(output_pin, OUTPUT);
+}
+
+void set_callsign(char *call) {
+  strcpy(my_call, call);
+}
 
 /*
  * 
