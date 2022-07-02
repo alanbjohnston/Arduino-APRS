@@ -23,25 +23,8 @@
 #define _STATUS         2
 #define _FIXPOS_STATUS  3
 
-
-class Aprs {
-  
-  private:
-    byte output_pin;
+byte output_pin;
     
-  public:
-    // Setup output pin  and call init()
-    Aprs(byte output_pin);
-    // Setup the output pin as OUTPUT
-    void init();
-  
-  private:   
-  
-    void set_nada_1200(void);
-    void set_nada_2400(void);
-  
-};
-
 /*
  * 
  */
