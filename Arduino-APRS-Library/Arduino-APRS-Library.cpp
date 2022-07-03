@@ -62,7 +62,7 @@ unsigned int tc2400 = (unsigned int)(0.5 * adj_2400 * 1000000.0 / 2400.0);
 /*
  * This strings will be used to generate AFSK signals, over and over again.
  */
-//const char *mycall = "KU2Y";
+const char *mycall_default = "MYCALL";
 
 char mycall[7];
 char myssid = 11;
@@ -72,12 +72,15 @@ const char *dest = "APRS";
 const char *digi = "WIDE2";
 char digissid = 1;
 
-const char *mystatus = "Hello World !!";
+//const char *mystatus = "Hello World !!";
+char mystatus[160];
 
-const char *lat = "0610.55S";
-const char *lon = "10649.62E";
-const char sym_ovl = 'H';
-const char sym_tab = 'a';
+const char *lat_default = "0610.55S";
+const char *lon_default = "10649.62E";
+const char sym_ovl_default = 'H';
+const char sym_tab_default = 'a';
+
+char lat[10], lon[10], sym_ovl, sym_tab;
 
 unsigned int tx_delay = 5000;
 unsigned int str_len = 400;
@@ -91,6 +94,17 @@ byte output_pin;
 void set_pin( byte pin) {
   output_pin = pin;
   pinMode(output_pin, OUTPUT);
+}
+
+void set_status(char *status) { 
+   strcpy(mystatus, status); 
+}
+
+void set_lat_lon_icon(char *latitude, char *longitude, char *icon) {
+  strcpy(lat, latitude); 
+  strcpy(lon, longitude);
+  sym_ovl = icon[0];
+  sym_tab = icon[1];
 }
 
 void set_callsign(char *call) {
