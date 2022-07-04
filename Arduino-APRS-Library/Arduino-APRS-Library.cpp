@@ -97,7 +97,7 @@ void set_pin( byte pin) {
 }
 
 void set_status(char *status) { 
-   strcpy(mystatus, status); 
+   strncpy(mystatus, status, (strlen(status) < 160) ? strlen(status), 160); 
 }
 
 void set_lat_lon_icon(char *latitude, char *longitude, char *icon) {
