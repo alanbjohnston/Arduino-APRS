@@ -28,7 +28,7 @@
  * 
  */
 void set_pin(byte pin);
-void set_callsign(char *call);
+void set_callsign(char *call, char *destination);
 void set_status(char *status);
 void set_lat_lon_icon(char *latitude, char *longitude, char *icon);
 void set_nada_1200(void);
@@ -41,7 +41,7 @@ void send_string_len(const char *in_string, int len);
 void calc_crc(bool in_bit);
 void send_crc(void);
 
-void send_packet(char packet_type);
+void send_packet(char packet_type, bool debug);
 void send_flag(unsigned char flag_len);
 void send_header(void);
 void send_payload(char type);
