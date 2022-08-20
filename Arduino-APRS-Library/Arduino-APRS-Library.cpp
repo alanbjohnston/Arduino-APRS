@@ -67,7 +67,7 @@ const char *mycall_default = "MYCALL";
 char mycall[7];
 char myssid = 11;
 
-const char *dest = "APRS";
+char dest[7];
 
 const char *digi = "WIDE2";
 char digissid = 1;
@@ -107,8 +107,9 @@ void set_lat_lon_icon(char *latitude, char *longitude, char *icon) {
   sym_tab = icon[1];
 }
 
-void set_callsign(char *call) {
+void set_callsign(char *call, char *destination) {
   strcpy(mycall, call);
+  strcpy(dest, destination);
 }
 
 /*
@@ -364,9 +365,10 @@ void send_flag(unsigned char flag_len)
  * delimiter. In this example, 100 flags is used the preamble and 3 flags as
  * the postamble.
  */
-void send_packet(char packet_type)
+void send_packet(char packet_type, bool debug)
 {
-  print_debug(packet_type);
+  if (debug)
+    print_debug(packet_type);
 
   digitalWrite(LED_BUILTIN, 1);
 
