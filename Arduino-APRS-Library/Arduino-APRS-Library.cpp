@@ -98,7 +98,7 @@ void set_pin( byte pin) {
 
 void set_status(char *status) { 
 //   strncpy(mystatus, status, (strlen(status) < 160) ? strlen(status): 160); 
-   strncat(mystatus, status, (strlen(status) < 260) ? strlen(status): 160); 
+   strncat(mystatus, status, (strlen(status) < 160) ? strlen(status): 160); 
   
 }
 
