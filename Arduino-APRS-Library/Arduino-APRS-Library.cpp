@@ -73,7 +73,7 @@ const char *digi = "WIDE2";
 char digissid = 1;
 
 //const char *mystatus = "Hello World !!";
-char mystatus[2550; // 160];
+char mystatus[255]; // 160];
 
 const char *lat_default = "0610.55S";
 const char *lon_default = "10649.62E";
