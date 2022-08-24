@@ -73,7 +73,7 @@ const char *digi = "WIDE2";
 char digissid = 1;
 
 //const char *mystatus = "Hello World !!";
-char mystatus[255]; // 160];
+char mystatus[160];
 
 const char *lat_default = "0610.55S";
 const char *lon_default = "10649.62E";
@@ -98,7 +98,7 @@ void set_pin( byte pin) {
 
 void set_status(char *status) { 
 //   strncpy(mystatus, status, (strlen(status) < 160) ? strlen(status): 160); 
-   strncat(mystatus, status, (strlen(status) < 255) ? strlen(status): 255); 
+   strncat(mystatus, status, (strlen(status) < 260) ? strlen(status): 160); 
   
 }
 
