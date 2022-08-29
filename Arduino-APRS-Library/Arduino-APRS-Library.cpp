@@ -98,7 +98,7 @@ byte output_pin;
 
 void set_pin( byte pin) {
   output_pin = pin;
-#define SIN
+#ifdef SIN
   pwm_sin_set_pin(output_pin);
   pwm_sin_start();
 #else  
@@ -130,7 +130,7 @@ void set_callsign(char *call, char *destination) {
  */
 void set_nada_1200(void)
 {
-#define SIN
+#ifdef SIN
   pwm_set_freq(1200);
   delayMicroseconds(tc1200 * 2);
 #else
@@ -143,7 +143,7 @@ void set_nada_1200(void)
 
 void set_nada_2400(void)
 {
-#define SIN
+#ifdef SIN
   pwm_set_freq(2400);
   delayMicroseconds(tc2400 * 4);
 #else  
