@@ -20,9 +20,14 @@
 // To use, Sketch/Include Library/Add .ZIP Library then select this file
 
 #include "Arduino-APRS-Library.h"
+
 //#include <Arduino.h>
 
+#define SIN  // define to use a PWM sine wave instead of a square wave
+#include "pico-sin-audio.h"
+#ifdef SIN
 
+#endif
 
 /*
  * SQUARE WAVE SIGNAL GENERATION
@@ -31,7 +36,7 @@
  * by simultaneously adjust the 1200 Hz and 2400 Hz tone,
  * so that both tone would scales synchronously.
  * adj_1200 determined the 1200 hz tone adjustment.
- * tc1200 is the half of the 1200 Hz signal periods.
+ * f is the half of the 1200 Hz signal periods.
  * 
  *      -------------------------                           -------
  *     |                         |                         |
@@ -93,7 +98,12 @@ byte output_pin;
 
 void set_pin( byte pin) {
   output_pin = pin;
+#define SIN
+  pwm_sin_set_pin(output_pin);
+  pwm_sin_start();
+#else  
   pinMode(output_pin, OUTPUT);
+#endif
 }
 
 void set_status(char *status) { 
@@ -120,14 +130,23 @@ void set_callsign(char *call, char *destination) {
  */
 void set_nada_1200(void)
 {
+#define SIN
+  pwm_set_freq(1200);
+  delayMicroseconds(tc1200 * 2);
+#else
   digitalWrite(output_pin, HIGH);
   delayMicroseconds(tc1200);
   digitalWrite(output_pin, LOW);
   delayMicroseconds(tc1200);
+#endif  
 }
 
 void set_nada_2400(void)
 {
+#define SIN
+  pwm_set_freq(2400);
+  delayMicroseconds(tc2400 * 4);
+#else  
   digitalWrite(output_pin, HIGH);
   delayMicroseconds(tc2400);
   digitalWrite(output_pin, LOW);
@@ -137,6 +156,7 @@ void set_nada_2400(void)
   delayMicroseconds(tc2400);
   digitalWrite(output_pin, LOW);
   delayMicroseconds(tc2400);
+#endif  
 }
 
 void set_nada(bool nada)
