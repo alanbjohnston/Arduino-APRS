@@ -55,9 +55,9 @@
  */
 const float baud_adj = 0.962; // 0.065;  // 0.975
 const float adj_1200 = 1.0 * baud_adj;
-const float adj_2400 = 0.98 * baud_adj;  // 1.0
-unsigned int tc1200 = (unsigned int)(0.5 * adj_1200 * 1000000.0 / 1200.0);
-unsigned int tc2400 = (unsigned int)(0.5 * adj_2400 * 1000000.0 / 2400.0);
+const float adj_2400 = 1.0 * baud_adj; 
+unsigned int tc1200 = (unsigned int)(0.5 * adj_1200 * 1000000.0 / 1200.0 + 0.5);
+unsigned int tc2400 = (unsigned int)(0.5 * adj_2400 * 1000000.0 / 2400.0 + 0.5);
 
 /*
  * This strings will be used to generate AFSK signals, over and over again.
