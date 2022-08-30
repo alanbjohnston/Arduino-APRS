@@ -23,10 +23,10 @@
 
 //#include <Arduino.h>
 
-#define SIN  // define to use a PWM sine wave instead of a square wave
-#include "pico-sin-audio.h"
-#ifdef SIN
+//#define SIN  // define to use a PWM sine wave instead of a square wave
 
+#ifdef SIN
+#include "pico-sin-audio.h"
 #endif
 
 /*
