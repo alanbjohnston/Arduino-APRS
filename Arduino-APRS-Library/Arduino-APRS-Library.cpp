@@ -23,10 +23,10 @@
 
 //#include <Arduino.h>
 
-//#define SIN  // define to use a PWM sine wave instead of a square wave
+#define SIN  // define to use a PWM sine wave instead of a square wave
 
 #ifdef SIN
-#include "pico-sin-audio.h"
+#include <pico_dds.h>
 #endif
 
 /*
@@ -99,8 +99,8 @@ byte output_pin;
 void set_pin( byte pin) {
   output_pin = pin;
 #ifdef SIN
-  pwm_sin_set_pin(output_pin);
-  pwm_sin_start();
+//  dds_set_pin(output_pin);
+  dds_begin();
 #else  
   pinMode(output_pin, OUTPUT);
 #endif
@@ -131,8 +131,9 @@ void set_callsign(char *call, char *destination) {
 void set_nada_1200(void)
 {
 #ifdef SIN
-  pwm_set_freq(1200);
+  dds_setfreq(1200);
   delayMicroseconds(tc1200 * 2);
+  dds_setfreq(0);
 #else
   digitalWrite(output_pin, HIGH);
   delayMicroseconds(tc1200);
@@ -144,8 +145,9 @@ void set_nada_1200(void)
 void set_nada_2400(void)
 {
 #ifdef SIN
-  pwm_set_freq(2400);
+  dds_setfreq(2400);
   delayMicroseconds(tc2400 * 4);
+  dds_setfreq(0);
 #else  
   digitalWrite(output_pin, HIGH);
   delayMicroseconds(tc2400);
