@@ -100,7 +100,7 @@ void set_pin( byte pin) {
   output_pin = pin;
 #ifdef SIN
 //  dds_set_pin(output_pin);
-  dds_begin();
+//  dds_begin();
   Serial.println("Starting APRS with SIN");
 #else  
   pinMode(output_pin, OUTPUT);
@@ -134,7 +134,7 @@ void set_nada_1200(void)
 #ifdef SIN
   dds_setfreq(1200);
   delayMicroseconds(tc1200 * 2);
-  dds_setfreq(0);
+//  dds_setfreq(0);
 #else
   digitalWrite(output_pin, HIGH);
   delayMicroseconds(tc1200);
@@ -148,7 +148,7 @@ void set_nada_2400(void)
 #ifdef SIN
   dds_setfreq(2400);
   delayMicroseconds(tc2400 * 4);
-  dds_setfreq(0);
+//  dds_setfreq(0);
 #else  
   digitalWrite(output_pin, HIGH);
   delayMicroseconds(tc2400);
