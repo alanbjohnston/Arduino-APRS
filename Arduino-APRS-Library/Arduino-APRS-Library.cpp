@@ -101,7 +101,7 @@ void set_pin( byte pin) {
 #ifdef SIN
 //  dds_set_pin(output_pin);
   Serial.println("Starting APRS with SIN");
-  dds_begin();
+  dds_begin(output_pin);
 #else  
   pinMode(output_pin, OUTPUT);
 #endif
