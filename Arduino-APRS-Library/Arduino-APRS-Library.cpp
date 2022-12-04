@@ -396,7 +396,7 @@ void send_packet(char packet_type, bool debug)
   if (debug)
     print_debug(packet_type);
 
-  digitalWrite(LED_BUILTIN, 1);
+//  digitalWrite(LED_BUILTIN, 1);
 
   /*
    * AX25 FRAME
@@ -420,7 +420,7 @@ void send_packet(char packet_type, bool debug)
   send_crc();
   send_flag(3);
 
-  digitalWrite(LED_BUILTIN, 0);
+//  digitalWrite(LED_BUILTIN, 0);
 }
 
 /*
@@ -437,7 +437,7 @@ void randomize(unsigned int &var, unsigned int low, unsigned int high)
  */
 void set_io(void)
 {
-  pinMode(LED_BUILTIN, OUTPUT);
+//  pinMode(LED_BUILTIN, OUTPUT);
 //  pinMode(OUT_PIN, OUTPUT);
 
   Serial.begin(115200);
