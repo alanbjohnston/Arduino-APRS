@@ -100,9 +100,10 @@ void set_pin( byte pin) {
   output_pin = pin;
 #ifdef SIN
 //  dds_set_pin(output_pin);
-  Serial.println("Starting APRS with SIN");
+  Serial.println("Starting Arduino-APRS-Library v0.31 with SIN");
   dds_begin(output_pin);
 #else  
+  Serial.println("Starting Arduino-APRS-Library v0.31");
   pinMode(output_pin, OUTPUT);
 #endif
 }
