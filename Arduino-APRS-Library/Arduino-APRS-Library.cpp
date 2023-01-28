@@ -414,14 +414,14 @@ void send_packet(char packet_type, bool debug)
    * FCS      : 2 bytes calculated from HEADER + PAYLOAD
    */
   
-//  send_flag(100);  
-  send_flag(3);
+  send_flag(100);  
+//  send_flag(3);
   crc = 0xffff;
   send_header();
   send_payload(packet_type);
   send_crc();
-  send_flag(3);
-
+//  send_flag(3);
+  send_flag(100);
 //  digitalWrite(LED_BUILTIN, 0);
 }
 
