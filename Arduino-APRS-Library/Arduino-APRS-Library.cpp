@@ -100,10 +100,10 @@ void set_pin( byte pin) {
   output_pin = pin;
 #ifdef SIN
 //  dds_set_pin(output_pin);
-  Serial.println("Starting Arduino-APRS-Library v0.32 with SIN");
+  Serial.println("Starting Arduino-APRS-Library v0.33 with SIN");
   dds_begin(output_pin);
 #else  
-  Serial.println("Starting Arduino-APRS-Library v0.32");
+  Serial.println("Starting Arduino-APRS-Library v0.33");
   pinMode(output_pin, OUTPUT);
 #endif
 }
@@ -413,15 +413,14 @@ void send_packet(char packet_type, bool debug)
    * PAYLOAD  : 1 byte data type + N byte info
    * FCS      : 2 bytes calculated from HEADER + PAYLOAD
    */
-  
-  send_flag(100);  
-//  send_flag(3);
+//  send_flag(100);    
+  send_flag(3);
   crc = 0xffff;
   send_header();
   send_payload(packet_type);
   send_crc();
-//  send_flag(3);
-  send_flag(100);
+  send_flag(3);
+//  send_flag(100);
 //  digitalWrite(LED_BUILTIN, 0);
 }
 
